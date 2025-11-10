@@ -10,7 +10,7 @@ const ExpandedPlayer = dynamic(() => import("./Expanded").then((mod) => mod.Expa
     loading: () => null
 });
 
-const MainLayout: React.FC = () => {
+const MainPlayerLayout: React.FC = () => {
     return (
         <>
             <div
@@ -27,4 +27,4 @@ const MainLayout: React.FC = () => {
     );
 };
 
-export default MainLayout;
+export default MainPlayerLayout;

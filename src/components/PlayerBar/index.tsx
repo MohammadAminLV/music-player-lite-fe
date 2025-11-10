@@ -1,16 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import dynamic from "next/dynamic";
 import { useAudio } from "../AudioProvider";
-import CompactMetadata from "./CompactMetadata";
-import Controls from "./Controls";
-import MainLayout from "./MainLayout";
-
-const ExpandedPlayer = dynamic(() => import("./Expanded").then((mod) => mod.ExpandedPlayer), {
-    ssr: false,
-    loading: () => null
-});
+import MainPlayerLayout from "./MainPlayerLayout";
 
 export const PlayerBar: React.FC = () => {
     const { state } = useAudio();
@@ -33,6 +25,6 @@ export const PlayerBar: React.FC = () => {
 
     {/* This component can be lazy-loaded, but I thought lazy-loading it has negative effect on user experiece */}
     return (
-        <MainLayout />
+        <MainPlayerLayout />
     );
 };
