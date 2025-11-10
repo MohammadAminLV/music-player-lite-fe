@@ -19,7 +19,6 @@ export default function useTracks() {
     return useQuery<TracksResponse, Error, Track[]>({
         queryKey: ["tracks"],
         queryFn: fetchTracks,
-        suspense: true,
         staleTime: 1000 * 60 * 2,
         select: (data) => data.data,
     });
