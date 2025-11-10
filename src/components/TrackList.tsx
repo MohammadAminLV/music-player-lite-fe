@@ -13,6 +13,12 @@ export const TrackList: React.FC = () => {
     useEffect(() => {
         if (data) setPlaylist(data); 
     }, [data, setPlaylist]);
+
+    if(isLoading) {
+        return (
+            <div>Loading tracks…</div>
+        )
+    }
     
     return (
         <div className="grid xl:grid-cols-2 gap-3">
