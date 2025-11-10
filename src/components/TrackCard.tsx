@@ -9,15 +9,14 @@ import Image from "next/image";
 type Props = {
     track: Track;
     index: number;
-    totalCount?: number;
 };
 
-const TrackCardInner: React.FC<Props> = ({ track, index, totalCount }) => {
+const TrackCardInner: React.FC<Props> = ({ track, index }) => {
     const { setTrack, state } = useAudio();
 
     const onPlay = useCallback(() => {
-        setTrack(track, index, totalCount);
-    }, [setTrack, track, index, totalCount]);
+        setTrack(track, index);
+    }, [setTrack, track, index]);
 
     const isCurrent = state.index === index;
 
