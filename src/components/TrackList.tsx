@@ -17,7 +17,7 @@ export const TrackList: React.FC = () => {
     if (isLoading) return <div>Loading tracks…</div>;
 
     return (
-        <div className="grid gap-3">
+        <div className="grid xl:grid-cols-2 gap-3">
             {data?.data.map((track, index) => (
                 <TrackCard key={track.url} track={track} index={index} />
             ))}

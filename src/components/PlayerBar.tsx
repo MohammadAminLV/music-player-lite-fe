@@ -169,13 +169,20 @@ export const PlayerBar: React.FC = () => {
                             role="dialog"
                         >
                             <motion.div
-                                className="relative w-full bg-gray-100 text-slate-900 rounded-t-2xl shadow-2xl p-6"
+                                className="relative w-full bg-gray-100 text-slate-900 rounded-t-2xl shadow-2xl p-6 relative"
                                 initial={{ translateY: 12 }}
                                 animate={{ translateY: 0 }}
                                 exit={{ translateY: 12 }}
                                 transition={{ duration: 0.32 }}
                                 onClick={(e) => e.stopPropagation()}
                             >
+                                <button
+                                    onClick={() => setExpanded(false)}
+                                    className="p-2 ml-2 text-xl text-slate-900 hover:text-slate-300 top-4 right-4 absolute"
+                                    aria-label="Close"
+                                >
+                                    ✕
+                                </button>
                                 <div className="mx-auto max-w-[95vw] flex flex-col items-center gap-6">
                                     <MotionImage
                                         layoutId="poster-img"
@@ -195,7 +202,7 @@ export const PlayerBar: React.FC = () => {
                                         exit={{ opacity: 0, y: 8, transition: { duration: 0.18 } }}
                                         className="w-full px-4"
                                     >
-                                        <div className="flex items-start justify-between gap-4">
+                                        <div className="flex flex-col items-center justify-between gap-4">
                                             <div>
                                                 <h2 className="text-2xl font-semibold">{state.track.title}</h2>
                                                 <p className="text-slate-900 mt-1">
@@ -225,14 +232,6 @@ export const PlayerBar: React.FC = () => {
                                                     aria-label="Next"
                                                 >
                                                     ▶︎
-                                                </button>
-
-                                                <button
-                                                    onClick={() => setExpanded(false)}
-                                                    className="p-2 ml-2 text-slate-900 hover:text-white"
-                                                    aria-label="Close"
-                                                >
-                                                    ✕
                                                 </button>
                                             </div>
                                         </div>
