@@ -11,14 +11,12 @@ export const TrackList: React.FC = () => {
     const { data, isLoading } = useTracks();
 
     useEffect(() => {
-        if (data) setPlaylist(data.data);
+        if (data) setPlaylist(data); 
     }, [data, setPlaylist]);
-
-    if (isLoading) return <div>Loading tracks…</div>;
-
+    
     return (
         <div className="grid xl:grid-cols-2 gap-3">
-            {data?.data.map((track, index) => (
+            {data?.map((track, index) => (
                 <TrackCard key={track.url} track={track} index={index} />
             ))}
         </div>
