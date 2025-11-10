@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --player-height: 84px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.app-shell {
+  padding-bottom: var(--player-height);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.player-backdrop {
+  @apply fixed inset-0 bg-black/80 z-[9998] opacity-0 transition-opacity duration-500 ease-in-out;
+}
+.player-backdrop.show {
+  @apply opacity-100;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes poster-pop {
+  from { transform: scale(0.8) translateY(12px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+.poster-pop {
+  animation: poster-pop 420ms cubic-bezier(.22,.9,.35,1) both;
+}
+
+button {
+  cursor: pointer;
 }
