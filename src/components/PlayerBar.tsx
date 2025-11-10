@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeOut, easeIn, easeInOut, spring } from "framer-motion";
 import { useAudio } from "./AudioProvider";
 import { Button } from "./Button";
 import { MotionImage } from "./MotionImage";
@@ -31,14 +31,14 @@ export const PlayerBar: React.FC = () => {
 
     const compactItem = {
         initial: { opacity: 0, y: 8 },
-        animate: { opacity: 1, y: 0, transition: { duration: 0.22, ease: "easeOut" } },
-        exit: { opacity: 0, y: 8, transition: { duration: 0.18, ease: "easeIn" } }
+        animate: { opacity: 1, y: 0, transition: { duration: 0.22, ease: easeOut } },
+        exit: { opacity: 0, y: 8, transition: { duration: 0.18, ease: easeIn } }
     };
 
     const drawerVariants = {
         hidden: { y: "100%" },
-        visible: { y: 0, transition: { stiffness: 100, damping: 20, type: "spring" } },
-        exit: { y: "100%", transition: { duration: 0.28, ease: "easeInOut" } }
+        visible: { y: 0, transition: { stiffness: 100, damping: 20, type: spring } },
+        exit: { y: "100%", transition: { duration: 0.28, ease: easeInOut } }
     };
 
     const overlayVariants = {
